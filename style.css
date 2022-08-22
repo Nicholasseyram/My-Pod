@@ -74,6 +74,20 @@ body {
   overflow-x: hidden;
 }
 /* come back later for the webkit */
+::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track { background: var(--xiketic-1); }
+
+::-webkit-scrollbar-thumb {
+  background: var(--nsu-purple);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-button {
+  height: 10px;
+  background: var(--xiketic-1);
+}
+
 
 .container {
   padding: 30px 15px;
@@ -121,7 +135,7 @@ header {
   background: var(--xiketic-1);
 }
 
-header > .container {
+header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,6 +169,32 @@ header > .container {
 }
 
 /* skipping rest of the navbar */
+.navbar-link:hover{
+  background: var(--nsu-purple);
+}
+
+.navbar .btn-primary{
+  display: none;
+}
+
+.nav-open-btn, .nav-close-btn{
+background: var(--white);
+color: var(--black);
+font-size: 30px;
+padding: 3px;
+border-radius: 8px;
+}
+
+.nav-close-btn{
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
+
+.nav-close-btn:hover{
+  background-color: var(--amaranth);
+  color: var(--white);
+}
 
 main {
   background: var(--xiketic-1);
@@ -190,7 +230,7 @@ main {
   text-align: center;
 }
 
-.download-link > ion-icon {
+.download-link  ion-icon {
   margin: auto;
   font-size: 65px;
   text-align: center;
@@ -251,7 +291,7 @@ main {
   padding: 40px 0;
 }
 
-.overview-banner > img {
+.overview-banner  img {
   width: 100%;
   max-width: 320px;
   margin: auto;
@@ -259,6 +299,12 @@ main {
 
 .overview-content {
   padding: 0 25px 40px;
+}
+
+.overview-item{
+  display:flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .overview-text {
@@ -270,11 +316,11 @@ main {
   margin-bottom: 20px;
 }
 
-.overview-item > ion-icon {
+.overview-item  ion-icon {
   color: var(--amaranth);
   font-size: 20px;
 }
-.overview-item > span {
+.overview-item  span {
   font-size: var(--fs-6);
   width: calc(100% - 30px);
 }
@@ -435,7 +481,7 @@ footer .container {
   --amaranth: hsl(349, 69%, 43%);
 }
 
-.go-top:active {
+.go-top.active {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
@@ -493,18 +539,17 @@ Responsiveness: Using Media Queries
     height: 300px;
   }
 
-  .blog-title{
+  .blog-title {
     --fs-2: 42px;
   }
 
-.footer-brand{
-  margin-bottom: 40px;
-}
+  .footer-brand {
+    margin-bottom: 40px;
+  }
 
-.footer-link-box{
-  grid-template-columns: 1fr 1fr;
-}
-
+  .footer-link-box {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* screen larger than 768px */
@@ -666,7 +711,29 @@ Responsiveness: Using Media Queries
 
 /* screen larger than 1200px */
 @media (min-width: 1200px) {
-  * {
-    display: none;
+  :root {
+    --fs-1: 60px;
+  }
+
+  .container {
+    max-width: 1140px;
+  }
+
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 150px;
+  }
+
+  .hero-banner{
+    top: 55%;
+    right: -50px;
+  }
+
+  .blog{
+    padding-bottom: 150px;
+  }
+
+  footer .container{
+    padding: 100px 15px;
   }
 }
